@@ -1,0 +1,56 @@
+export const procedures = [
+  {
+    id: "PR-201",
+    title: "Battery Discharge Mitigation",
+    linkedAnomaly: "AN-118",
+    priority: "critical",
+    aiConfidence: 91,
+    summary: "Reduce non-essential payload draw and reroute power to preserve cell health through eclipse phase.",
+    steps: [
+      "Suspend non-critical instrument payloads",
+      "Reroute auxiliary power bus to battery bank A",
+      "Throttle downlink transmit power by 15%",
+      "Re-verify state of charge after eclipse exit",
+    ],
+  },
+  {
+    id: "PR-200",
+    title: "Thermal Sensor Cross-Calibration",
+    linkedAnomaly: "AN-117",
+    priority: "moderate",
+    aiConfidence: 76,
+    summary: "Recalibrate Panel B thermal sensor array against redundant sensor cluster to rule out drift.",
+    steps: [
+      "Isolate sensor B-3 readings from control loop",
+      "Cross-reference against sensor cluster B-1/B-2",
+      "Apply calibration offset if drift confirmed",
+      "Restore sensor B-3 to control loop",
+    ],
+  },
+  {
+    id: "PR-199",
+    title: "Storage Compression Throttle",
+    linkedAnomaly: "AN-116",
+    priority: "low",
+    aiConfidence: 68,
+    summary: "Lower telemetry batch compression ratio to reduce write latency spikes on primary SSD.",
+    steps: [
+      "Reduce compression level from 9 to 6",
+      "Increase write buffer allocation by 128MB",
+      "Monitor latency over next 3 batches",
+    ],
+  },
+  {
+    id: "PR-198",
+    title: "High-Gain Antenna Slew Profile Adjustment",
+    linkedAnomaly: "AN-115",
+    priority: "moderate",
+    aiConfidence: 74,
+    summary: "Smooth antenna slew acceleration curve to reduce transient SNR degradation during repointing.",
+    steps: [
+      "Load revised slew acceleration profile",
+      "Validate against next scheduled repoint",
+      "Confirm SNR remains above 95% threshold",
+    ],
+  },
+]
